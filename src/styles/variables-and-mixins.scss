@@ -1,0 +1,27 @@
+//variables
+
+//fonts
+$font-body: 'Roboto Serif', serif;
+$font-infoCard: 'Open Sans', sans-serif;
+$input-placeholder-font: 'Montserrat', sans-serif;
+
+//color-text
+$textcolor-black: #000000;
+$textcolor-grey: #717476;
+
+//bg-color
+$bgcolor-btn-board: #7b7b7e;
+$bgcolor-btn-menu: #8f8c8f;
+$bgcolor-btn-complaint: #b50505;
+$bgcolor-btn-downloadBoard: #298e50;
+
+
+//mixins
+
+@mixin font-body{
+    font-family: $font-body;
+    font-size: 16px;
+    color: $textcolor-black;
+    line-height: 1.2;
+    font-weight: normal;
+}
