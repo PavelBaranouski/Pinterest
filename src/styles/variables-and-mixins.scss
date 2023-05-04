@@ -8,20 +8,68 @@ $input-placeholder-font: 'Montserrat', sans-serif;
 //color-text
 $textcolor-black: #000000;
 $textcolor-grey: #717476;
+$textcolor-white: #ffffff;
 
 //bg-color
-$bgcolor-btn-board: #7b7b7e;
+$bgcolor-header:#ffffff;
+$bgcolor-btn-board: #3e8e41;
 $bgcolor-btn-menu: #8f8c8f;
-$bgcolor-btn-complaint: #b50505;
-$bgcolor-btn-downloadBoard: #298e50;
+$bgcolor-btn-complaint: #c03636;
+$bgcolor-btn-addBoard: #3e8e41;
+
+
+
 
 
 //mixins
 
-@mixin font-body{
+//Основные стили для шрифтов для body
+@mixin font-body{ 
     font-family: $font-body;
     font-size: 16px;
     color: $textcolor-black;
     line-height: 1.2;
     font-weight: normal;
 }
+
+// стили для header
+@mixin header{
+    display: flex;
+    top:0;
+    position: fixed;
+    background-color: $bgcolor-header;
+    z-index: 2;
+}
+
+@mixin main-card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+//Миксин на добавление кнопки выбор досок
+@mixin drop-btn{ 
+    background-color: $bgcolor-btn-board;
+    color: $textcolor-white;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+
+    background-image: url(../img/svg/downarrow_121316.svg);
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10%;
+    
+}
+
+//Миксин ссылок Board 1,2,3
+@mixin board-link{ 
+    font-family: $input-placeholder-font;
+    text-decoration: none;
+    font-size: 16px;
+    color: $textcolor-black;
+    padding: 12px 16px;
+}
+
+//main

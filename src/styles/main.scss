@@ -1,83 +1,234 @@
+//Импорты SCSS файлов
 @import "reset";
 @import "variables-and-mixins";
-@import "fonts.scss";
+@import "fonts";
 @import "header";
 
-body{
-    @include font-body;
+//Импорты media-запросов
+@import './media/headerMedia';
+@import './media/mainMedia';
+
+body {
+  @include font-body;
 }
 
-main{
-    width: 100%;
-    height: 100vh;
+
+
+main {
+  margin-top: 70px;
 }
 
 .main__card {
-    display: flex;
-    justify-content: space-between;
+ @include main-card;
+}
+
+.card {
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+
+  .card__img {
     width: 100%;
-    height: 70%;
-  
-    .card {
-      width: 20%;
-      height: 70%;
+    height: 100%;
+    display: block;
+
+    .img__item {
+      width: 100%;
+      height: 100%;
+      border-radius: 30px;
+    }
+
+    .card__info {
+      position: relative;
       display: flex;
+      padding: 10px;
       flex-direction: column;
-      margin: 1%;
-  
-      &:nth-of-type(even) {
-        align-self: center; 
-      }
-  
-      .card__img {
+      align-items: center;
+      justify-content: space-evenly;
+      bottom: 45%;
+      height: 40%;
+
+      .btn__add,
+      .btn__hidePin,
+      .btn__report {
         width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        position: relative;
-  
-        .img__item {
-          width: 100%;
-          height: 100%;
-          border-radius: 30px;
+        height: 30%;
+        opacity: 0.3;
+        transition: opacity 0.3s ease-in-out;
+
+        &:hover {
+          opacity: 1;
         }
-  
-        .form__info {
-          width: 21%;
-          position: absolute;
-          bottom: 5%;
-          left: 75%;
-          height: 15%;
-  
-          .btn__info {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background-color: $bgcolor-btn-menu;
-            background-image: url(../img/svg/more-horizontal-outline.svg);
-            background-repeat: no-repeat;
-            background-position: center;
-          }
-        }
+      }
+
+      .btn__add:hover {
+        background-color: #3e8e41;
+        color: #ddd;
+      }
+
+      .btn__hidePin:hover {
+        background-color: #4e4e4e;
+        color: #ddd;
+      }
+
+      .btn__report:hover {
+        background-color: #c03636;
+        color: #ddd;
       }
     }
   }
-  .card__user{
-    width: 100%;
-    height: 50%;
-    margin-top: 5%;
+
+  .card__user {
+    margin-top: 15px;
     display: flex;
 
-    .user__avatar{
-        width: 45%;
-        height: 50%;
-        border-radius: 50%;
+    .user__avatar {
+      width: 25%;
+      border-radius: 50%;
     }
 
     .title {
-    margin-left: 5%;
-    font-family: $font-infoCard;
-    font-size: 14px;
+      margin-left: 10px;
+      font-family: $font-infoCard;
+      font-size: 14px;
     }
+  }
+}
+
+// window
+.main__window {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  .second__window {
+    width: 65%;
+    margin: 0 auto;
+    height: 75%;
+    border: 2px solid black;
+    border-radius: 30px;
+    background: lightgray;
+    display: flex;
+    flex-direction: column;
+
+    .block__close {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      height: 20%;
+
+      .close {
+        width: 10%;
+        height: 80%;
+        margin: 20px;
+        border-radius: 15%;
+        font-size: 40px;
+        opacity: 0.3;
+        transition: opacity 0.3s ease-in-out;
+
+        &:hover {
+          opacity: 1;
+          background-color: rgba(247, 95, 81, 0.933);
+          color: #ddd;
+        }
+      }
+    }
+
+    .block__add {
+      width: 100%;
+      height: 85%;
+      border-radius: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+
+      .title__btnAdd {
+        width: 100%;
+        height: 15%;
+        border-radius: 30px;
+        text-align: center;
+        font-size: 45px;
+        color: black;
+        font-family: cursive;
+      }
+
+      .btn__board {
+        width: 90%;
+        height: 15%;
+        border-radius: 30px;
+        font-size: 30px;
+        font-family: inherit;
+        opacity: 0.3;
+        transition: opacity 0.3s ease-in-out;
+
+        &:hover {
+          opacity: 1;
+          background-color: #3e8e41;
+          color: #ddd;
+        }
+      }
+
+      .btn__sendReport {
+        width: 30%;
+        height: 10%;
+        position: relative;
+        left: 25%;
+        border-radius: 20px;
+        font-size: 20px;
+        font-family: monospace;
+        opacity: 0.3;
+        transition: opacity 0.3s ease-in-out;
+
+        &:hover {
+          opacity: 1;
+          background-color: rgba(247, 95, 81, 0.933);
+          color: #ddd;
+        }
+      }
+    }
+
+    // complain 
+    .report__wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 50%;
+      width: 75%;
+
+      .report__container {
+        display: flex;
+        justify-content: start;
+        margin: 10px;
+        height: 10%;
+        width: 50%;
+      }
+      
+      .input__radio {
+        margin-right: 20px;
+        width: 10%;
+      }
+      
+      .report__label {
+        font-size: 20px;
+        font-family: 'Montserrat';
+      }
+    }
+
+    //dropdown-content
+    .block__card {
+      width: 90%;
+      height: 80%;
+      border: 2px solid;
+    }
+  }
 }
